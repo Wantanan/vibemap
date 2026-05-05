@@ -1,0 +1,85 @@
+.mapview-wrap { width: 100%; }
+
+.mapview-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mapview-error {
+  height: 300px;
+  background: #fce8e8;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a32d2d;
+}
+
+.mapview-loading {
+  height: 300px;
+  background: #f0f4f8;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}
+
+.map-info-window { max-width: 200px; padding: 4px; }
+.map-info-name { font-size: 14px; font-weight: 600; color: #3aada8; margin-bottom: 4px; }
+.map-info-address { font-size: 12px; color: #666; margin-bottom: 4px; }
+.map-info-rating { font-size: 12px; color: #f5a623; margin-bottom: 4px; }
+
+.map-info-vibe {
+  background: #0f6e56;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pin-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pin-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  width: 100%;
+}
+
+.pin-item:hover { border-color: #3aada8; }
+.pin-item.active { border: 2px solid #3aada8; background: #e1f5ee; }
+
+.pin-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #3aada8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pin-info { flex: 1; }
+.pin-name { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+.pin-address { font-size: 12px; color: #888; }
+.pin-vibe { font-size: 12px; font-weight: 600; color: #0f6e56; flex-shrink: 0; }

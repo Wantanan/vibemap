@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { saveProfile } from '../api/api';
+import './Onboarding.css';
 
 const STEPS = [
   {
@@ -70,10 +71,7 @@ const STEPS = [
     title: 'Budget',
     question: 'What is your typical spend per outing?',
     type: 'slider',
-    min: 10,
-    max: 200,
-    step: 10,
-    unit: '$'
+    min: 10, max: 200, step: 10, unit: '$'
   },
   {
     key: 'personal_bio',
@@ -94,30 +92,20 @@ export default function Onboarding() {
   const step = STEPS[current];
   const progress = Math.round((current / STEPS.length) * 100);
 
-  const handleSingle = (value) => {
-    setAnswers({ ...answers, [step.key]: value });
-  };
+  const handleSingle = (value) => setAnswers({ ...answers, [step.key]: value });
 
   const handleMulti = (value) => {
-    const current_vals = answers[step.key] || [];
-    if (current_vals.includes(value)) {
-      setAnswers({ ...answers, [step.key]: current_vals.filter(v => v !== value) });
-    } else {
-      setAnswers({ ...answers, [step.key]: [...current_vals, value] });
-    }
-  };
-
-  const handleSlider = (value) => {
-    setAnswers({ ...answers, [step.key]: parseInt(value) });
-  };
-
-  const handleText = (value) => {
-    setAnswers({ ...answers, [step.key]: value });
+    const vals = answers[step.key] || [];
+    setAnswers({
+      ...answers,
+      [step.key]: vals.includes(value)
+        ? vals.filter(v => v !== value)
+        : [...vals, value]
+    });
   };
 
   const canNext = () => {
-    if (step.type === 'slider') return true;
-    if (step.type === 'text') return true;
+    if (step.type === 'slider' || step.type === 'text') return true;
     if (step.type === 'single') return !!answers[step.key];
     if (step.type === 'multi') return (answers[step.key] || []).length > 0;
     return true;
@@ -135,10 +123,7 @@ export default function Onboarding() {
     setLoading(true);
     setError('');
     try {
-      await saveProfile({
-        user_id: user.user_id,
-        profile_data: answers
-      });
+      await saveProfile({ user_id: user.user_id, profile_data: answers });
       navigate('/dashboard');
     } catch (err) {
       setError('Failed to save profile. Please try again.');
@@ -147,72 +132,64 @@ export default function Onboarding() {
   };
 
   return (
-    <div style={styles.page}>
-      <div style={styles.card}>
+    <div className="onboarding-page">
+      <div className="onboarding-card">
 
-        <div style={styles.brandRow}>
-          <span style={styles.brandIcon}>🧭</span>
-          <span style={styles.brandName}>VibeMap</span>
+        <div className="onboarding-brand">
+          <span className="onboarding-brand-icon">🧭</span>
+          <span className="onboarding-brand-name">VibeMap</span>
         </div>
 
-        <div style={styles.progressBar}>
-          <div style={{ ...styles.progressFill, width: `${progress}%` }} />
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
 
-        <p style={styles.stepLabel}>Step {current + 1} of {STEPS.length} — {step.title}</p>
-        <h2 style={styles.question}>{step.question}</h2>
+        <p className="step-label">Step {current + 1} of {STEPS.length} — {step.title}</p>
+        <h2 className="step-question">{step.question}</h2>
 
         {step.type === 'single' && (
-          <div style={styles.grid}>
+          <div className="options-grid">
             {step.options.map(opt => (
               <button
                 key={opt.value}
-                style={{
-                  ...styles.optCard,
-                  ...(answers[step.key] === opt.value ? styles.optSelected : {})
-                }}
+                className={`opt-card ${answers[step.key] === opt.value ? 'selected' : ''}`}
                 onClick={() => handleSingle(opt.value)}
               >
-                <div style={styles.optIcon}>{opt.icon}</div>
-                <div style={styles.optLabel}>{opt.value}</div>
-                {opt.desc && <div style={styles.optDesc}>{opt.desc}</div>}
+                <div className="opt-icon">{opt.icon}</div>
+                <div className="opt-label">{opt.value}</div>
+                {opt.desc && <div className="opt-desc">{opt.desc}</div>}
               </button>
             ))}
           </div>
         )}
 
         {step.type === 'multi' && (
-          <div style={styles.tagWrap}>
-            {step.options.map(opt => {
-              const selected = (answers[step.key] || []).includes(opt.value);
-              return (
-                <button
-                  key={opt.value}
-                  style={{ ...styles.tag, ...(selected ? styles.tagSelected : {}) }}
-                  onClick={() => handleMulti(opt.value)}
-                >
-                  {opt.icon} {opt.value}
-                </button>
-              );
-            })}
+          <div className="tags-wrap">
+            {step.options.map(opt => (
+              <button
+                key={opt.value}
+                className={`tag-btn ${(answers[step.key] || []).includes(opt.value) ? 'selected' : ''}`}
+                onClick={() => handleMulti(opt.value)}
+              >
+                {opt.icon} {opt.value}
+              </button>
+            ))}
           </div>
         )}
 
         {step.type === 'slider' && (
-          <div style={styles.sliderWrap}>
-            <div style={styles.sliderVal}>
-              {step.unit}{answers[step.key] || step.min}
+          <div className="slider-wrap">
+            <div className="slider-val">
+              ${answers[step.key] || step.min}
             </div>
             <input
               type="range"
-              min={step.min}
-              max={step.max}
-              step={step.step}
+              className="slider-input"
+              min={step.min} max={step.max} step={step.step}
               value={answers[step.key] || step.min}
-              onChange={e => handleSlider(e.target.value)}
-              style={styles.slider}
+              onChange={e => setAnswers({ ...answers, [step.key]: parseInt(e.target.value) })}
             />
-            <div style={styles.sliderLabels}>
+            <div className="slider-labels">
               <span>Budget-friendly</span>
               <span>Mid-range</span>
               <span>Splurge</span>
@@ -222,106 +199,34 @@ export default function Onboarding() {
 
         {step.type === 'text' && (
           <textarea
-            style={styles.textarea}
+            className="bio-textarea"
             placeholder="Briefly describe your daily vibe..."
             value={answers[step.key] || ''}
-            onChange={e => handleText(e.target.value)}
+            onChange={e => setAnswers({ ...answers, [step.key]: e.target.value })}
             rows={4}
           />
         )}
 
-        {error && <p style={styles.error}>{error}</p>}
+        {error && <p className="onboarding-error">{error}</p>}
 
-        <div style={styles.nav}>
+        <div className="onboarding-nav">
           <button
-            style={styles.btnBack}
+            className="btn-back"
             onClick={() => setCurrent(current - 1)}
             disabled={current === 0}
           >
             Back
           </button>
           <button
-            style={{
-              ...styles.btnNext,
-              opacity: canNext() ? 1 : 0.4
-            }}
+            className="btn-next"
             onClick={handleNext}
             disabled={!canNext() || loading}
           >
             {loading ? 'Saving...' : current === STEPS.length - 1 ? 'Find My Vibe ✨' : 'Next →'}
           </button>
         </div>
+
       </div>
     </div>
   );
 }
-
-const styles = {
-  page: {
-    minHeight: '100vh', background: '#f0f4f8',
-    display: 'flex', alignItems: 'center',
-    justifyContent: 'center', padding: '1rem'
-  },
-  card: {
-    background: '#fff', borderRadius: '16px',
-    padding: '2rem', width: '100%',
-    maxWidth: '560px', boxShadow: '0 4px 24px rgba(0,0,0,0.1)'
-  },
-  brandRow: {
-    display: 'flex', alignItems: 'center',
-    gap: '8px', marginBottom: '1.5rem'
-  },
-  brandIcon: { fontSize: '22px' },
-  brandName: { fontSize: '18px', fontWeight: '600', color: '#3aada8' },
-  progressBar: {
-    height: '4px', background: '#e0e0e0',
-    borderRadius: '4px', marginBottom: '1.5rem'
-  },
-  progressFill: {
-    height: '4px', background: '#3aada8',
-    borderRadius: '4px', transition: 'width 0.4s ease'
-  },
-  stepLabel: { fontSize: '12px', color: '#888', marginBottom: '6px', letterSpacing: '0.05em' },
-  question: { fontSize: '20px', fontWeight: '600', color: '#1a1a1a', marginBottom: '1.5rem' },
-  grid: {
-    display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
-    gap: '10px', marginBottom: '1.5rem'
-  },
-  optCard: {
-    background: '#fff', border: '1.5px solid #e0e0e0',
-    borderRadius: '12px', padding: '14px 10px',
-    cursor: 'pointer', textAlign: 'center', transition: 'all 0.15s'
-  },
-  optSelected: { border: '2px solid #3aada8', background: '#e1f5ee' },
-  optIcon: { fontSize: '24px', marginBottom: '6px' },
-  optLabel: { fontSize: '13px', fontWeight: '500', color: '#1a1a1a' },
-  optDesc: { fontSize: '11px', color: '#888', marginTop: '2px' },
-  tagWrap: { display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '1.5rem' },
-  tag: {
-    background: '#fff', border: '1.5px solid #e0e0e0',
-    borderRadius: '20px', padding: '8px 16px',
-    fontSize: '13px', cursor: 'pointer', color: '#1a1a1a', transition: 'all 0.15s'
-  },
-  tagSelected: { background: '#e1f5ee', border: '2px solid #3aada8', color: '#0f6e56', fontWeight: '500' },
-  sliderWrap: { marginBottom: '1.5rem' },
-  sliderVal: { textAlign: 'center', fontSize: '20px', fontWeight: '600', color: '#3aada8', marginBottom: '10px' },
-  slider: { width: '100%', accentColor: '#3aada8' },
-  sliderLabels: { display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: '#888', marginTop: '6px' },
-  textarea: {
-    width: '100%', padding: '12px', borderRadius: '10px',
-    border: '1.5px solid #e0e0e0', fontSize: '14px',
-    resize: 'vertical', outline: 'none', marginBottom: '1.5rem'
-  },
-  error: { color: '#e24b4a', fontSize: '13px', marginBottom: '1rem' },
-  nav: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' },
-  btnBack: {
-    background: 'none', border: '1.5px solid #e0e0e0',
-    borderRadius: '10px', padding: '10px 20px',
-    fontSize: '14px', color: '#888', cursor: 'pointer'
-  },
-  btnNext: {
-    background: '#f5a623', border: 'none',
-    borderRadius: '10px', padding: '10px 28px',
-    fontSize: '14px', fontWeight: '600', color: '#412402', cursor: 'pointer'
-  }
-};

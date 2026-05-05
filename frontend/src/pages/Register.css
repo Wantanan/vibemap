@@ -1,0 +1,32 @@
+.register-page {
+  min-height: 100vh;
+  background: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.register-card {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.register-header {
+  background: #3aada8;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.register-logo { font-size: 40px; margin-bottom: 8px; }
+.register-brand { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.register-tagline { font-size: 14px; opacity: 0.85; }
+
+.register-body { padding: 2rem; }
+.register-title { font-size: 20px; font-weight: 600; color: #3aada8; margin-bottom: 4px; }
+.register-sub { font-size: 14px; color: #888; margin-bottom: 1.5rem; }
