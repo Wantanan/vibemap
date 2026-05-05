@@ -1,0 +1,141 @@
+{
+  "user_profiles": [
+    {
+      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "username": "wan",
+      "password": "1234",
+      "registration_date": "2026-05-05T19:03:49.721329",
+      "profile": {
+        "lifestyle_phase": "Digital Nomad",
+        "food_vibe": [
+          "Thai",
+          "Japanese"
+        ],
+        "atmosphere_music": [
+          "Pop / Top 40"
+        ],
+        "activities": [
+          "Live Music"
+        ],
+        "budget": 50,
+        "personal_bio": "chill"
+      }
+    }
+  ],
+  "feature_vectors": [
+    {
+      "vector_id": "4edafe7a-198b-4013-a1c2-106a592d49b2",
+      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "feature_data": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "created_at": "2026-05-05T19:04:54.129050",
+      "updated_at": "2026-05-05T19:10:15.840478"
+    }
+  ],
+  "peer_groups": [
+    {
+      "group_id": "g1",
+      "group_name": "Digital Nomad"
+    },
+    {
+      "group_id": "g2",
+      "group_name": "Young Professional"
+    },
+    {
+      "group_id": "g3",
+      "group_name": "Family-First Explorer"
+    },
+    {
+      "group_id": "g4",
+      "group_name": "Gen-Z Trendsetter"
+    },
+    {
+      "group_id": "g5",
+      "group_name": "Active Senior"
+    },
+    {
+      "group_id": "g6",
+      "group_name": "Empty Nester"
+    },
+    {
+      "group_id": "g7",
+      "group_name": "Solo Traveler"
+    },
+    {
+      "group_id": "g8",
+      "group_name": "Student / Academic"
+    },
+    {
+      "group_id": "g9",
+      "group_name": "Creative Freelancer"
+    }
+  ],
+  "recommendation_logs": [
+    {
+      "log_id": "7627bcbb-0c31-41df-82c3-7521b3831285",
+      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "group_id": "g1",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 1,
+      "recommendation_time": "2026-05-05T19:05:14.007155"
+    },
+    {
+      "log_id": "fb783860-4844-4b76-a12d-63eaac50c312",
+      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "group_id": "g1",
+      "location": "bangkok",
+      "category": "Restaurants",
+      "layer_used": 1,
+      "recommendation_time": "2026-05-05T19:06:24.576652"
+    },
+    {
+      "log_id": "41fc1f1d-1cf8-48a4-aebf-b53468b4a2a1",
+      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "group_id": "g1",
+      "location": "mokpo, south korean",
+      "category": "Restaurants",
+      "layer_used": 1,
+      "recommendation_time": "2026-05-05T19:09:28.153440"
+    },
+    {
+      "log_id": "f5694bc5-537d-49d7-99bc-cecb56cd99e5",
+      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "group_id": "g1",
+      "location": "mokpo, south korean",
+      "category": "Restaurants",
+      "layer_used": 1,
+      "recommendation_time": "2026-05-05T19:10:36.850904"
+    }
+  ]
+}

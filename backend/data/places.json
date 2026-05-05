@@ -1,0 +1,90 @@
+[
+  {
+    "place_id": "p1",
+    "name": "Blue Wave Bistro",
+    "category": "Restaurants",
+    "address": "123 Coastal Way",
+    "rating": 4.8,
+    "description": "Modern seafood with a stunning view of the harbor. Great kids menu!",
+    "tags": ["seafood", "family", "waterfront"],
+    "vibe_tags": ["relaxed", "romantic", "family"],
+    "price_range": 2
+  },
+  {
+    "place_id": "p2",
+    "name": "Skyline Park",
+    "category": "Outdoors",
+    "address": "Park Avenue North",
+    "rating": 4.5,
+    "description": "Quiet green space with hiking trails and scenic overlooks.",
+    "tags": ["outdoors", "hiking", "nature"],
+    "vibe_tags": ["energetic", "adventurous", "relaxed"],
+    "price_range": 0
+  },
+  {
+    "place_id": "p3",
+    "name": "The Brew Lab",
+    "category": "Cafes",
+    "address": "45 Market Street",
+    "rating": 4.6,
+    "description": "Specialty coffee and coworking-friendly space. Fast wifi!",
+    "tags": ["coffee", "coworking", "wifi"],
+    "vibe_tags": ["energetic", "professional"],
+    "price_range": 1
+  },
+  {
+    "place_id": "p4",
+    "name": "Neon Lounge",
+    "category": "Nightlife",
+    "address": "88 Night Strip",
+    "rating": 4.3,
+    "description": "Trendy cocktail bar with live DJ sets every weekend.",
+    "tags": ["nightlife", "cocktails", "music"],
+    "vibe_tags": ["energetic", "social", "trendy"],
+    "price_range": 3
+  },
+  {
+    "place_id": "p5",
+    "name": "Little Explorers Hub",
+    "category": "Kids & Family",
+    "address": "12 Sunshine Boulevard",
+    "rating": 4.7,
+    "description": "Indoor play area and learning centre for kids aged 2-10.",
+    "tags": ["kids", "family", "indoor"],
+    "vibe_tags": ["family", "relaxed"],
+    "price_range": 1
+  },
+  {
+    "place_id": "p6",
+    "name": "Canvas & Co",
+    "category": "Education",
+    "address": "67 Art Quarter",
+    "rating": 4.4,
+    "description": "Art studio offering painting workshops for all skill levels.",
+    "tags": ["art", "workshop", "creative"],
+    "vibe_tags": ["creative", "relaxed", "social"],
+    "price_range": 2
+  },
+  {
+    "place_id": "p7",
+    "name": "Zen Garden Cafe",
+    "category": "Cafes",
+    "address": "9 Tranquil Lane",
+    "rating": 4.9,
+    "description": "Japanese-inspired tea house with matcha and healthy bites.",
+    "tags": ["japanese", "healthy", "tea"],
+    "vibe_tags": ["relaxed", "romantic"],
+    "price_range": 2
+  },
+  {
+    "place_id": "p8",
+    "name": "Peak Adventures",
+    "category": "Outdoors",
+    "address": "Mountain Road East",
+    "rating": 4.6,
+    "description": "Guided hiking and rock climbing for thrill seekers.",
+    "tags": ["hiking", "climbing", "adventure"],
+    "vibe_tags": ["adventurous", "energetic"],
+    "price_range": 2
+  }
+]
