@@ -45,38 +45,51 @@ ACTIVITY_MAP = {
     'Live Music': 6
 }
 
-VIBE_MAP = {
-    'energetic': 0,
-    'relaxed': 1,
-    'adventurous': 2,
-    'romantic': 3,
-    'social': 4
+AGE_MAP = {
+    '18-24': 0,
+    '25-34': 1,
+    '35-44': 2,
+    '45-54': 3,
+    '55-64': 4,
+    '65+': 5
 }
 
 def build_feature_vector(profile_data):
-    vector = np.zeros(30)
+    vector = np.zeros(37)
 
+    # Lifestyle (0-8)
     lifestyle = profile_data.get('lifestyle_phase', '')
     if lifestyle in LIFESTYLE_MAP:
         vector[LIFESTYLE_MAP[lifestyle]] = 1.0
 
+    # Food (9-16)
     foods = profile_data.get('food_vibe', [])
     for food in foods:
         if food in FOOD_MAP:
             vector[9 + FOOD_MAP[food]] = 1.0
 
+    # Music (17-22)
     music = profile_data.get('atmosphere_music', [])
     for m in music:
         if m in MUSIC_MAP:
             vector[17 + MUSIC_MAP[m]] = 1.0
 
+    # Activities (23-29)
     activities = profile_data.get('activities', [])
     for act in activities:
         if act in ACTIVITY_MAP:
             vector[23 + ACTIVITY_MAP[act]] = 1.0
 
+    # Budget (30) - normalised
     budget = profile_data.get('budget', 50)
-    vector[29] = min(float(budget) / 200.0, 1.0)
+    vector[30] = min(float(budget) / 200.0, 1.0)
+
+    # Age range (31-36) - weighted higher for better matching
+    age_range = profile_data.get('age_range', '')
+    if age_range in AGE_MAP:
+        idx = 31 + AGE_MAP[age_range]
+        if idx < len(vector):
+            vector[idx] = 1.5
 
     return vector.tolist()
 

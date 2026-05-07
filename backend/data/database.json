@@ -1,50 +1,61 @@
 {
   "user_profiles": [
     {
-      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
-      "username": "wan",
-      "password": "1234",
-      "registration_date": "2026-05-05T19:03:49.721329",
+      "user_id": "7de8e6c4-e40a-4743-a090-8f9ac81557a4",
+      "username": "kitty",
+      "password": "0022",
+      "registration_date": "2026-05-07T19:25:52.411247",
       "profile": {
-        "lifestyle_phase": "Digital Nomad",
+        "budget": 50,
+        "lifestyle_phase": "Active Senior",
+        "age_range": "65+",
         "food_vibe": [
-          "Thai",
+          "Middle Eastern",
           "Japanese"
         ],
         "atmosphere_music": [
-          "Pop / Top 40"
+          "Pop / Top 40",
+          "Jazz / Blues"
         ],
         "activities": [
-          "Live Music"
+          "Live Music",
+          "Fitness",
+          "Workshops"
         ],
+        "personal_bio": "reading"
+      }
+    },
+    {
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "username": "david",
+      "password": "0011",
+      "registration_date": "2026-05-07T19:27:46.030668",
+      "profile": {
         "budget": 50,
-        "personal_bio": "chill"
+        "lifestyle_phase": "Active Senior",
+        "age_range": "65+",
+        "food_vibe": [
+          "Seafood",
+          "Italian",
+          "Middle Eastern"
+        ],
+        "atmosphere_music": [
+          "Pop / Top 40",
+          "Lo-fi / Chill"
+        ],
+        "activities": [
+          "Live Music",
+          "Social / Nightlife"
+        ],
+        "personal_bio": "eating"
       }
     }
   ],
   "feature_vectors": [
     {
-      "vector_id": "4edafe7a-198b-4013-a1c2-106a592d49b2",
-      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
+      "vector_id": "4ca7a8e9-ab4c-474b-9a71-97f424182884",
+      "user_id": "c43dfa65-2515-4445-b32b-05f977057242",
       "feature_data": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
         0.0,
         0.0,
         0.0,
@@ -54,12 +65,124 @@
         0.0,
         0.0,
         0.0,
+        1.0,
+        1.0,
         0.0,
         0.0,
-        0.25
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.5
       ],
-      "created_at": "2026-05-05T19:04:54.129050",
-      "updated_at": "2026-05-05T19:10:15.840478"
+      "created_at": "2026-05-07T19:25:00.387152"
+    },
+    {
+      "vector_id": "0b6f1ed8-d570-4d61-932c-6714893f0c8d",
+      "user_id": "7de8e6c4-e40a-4743-a090-8f9ac81557a4",
+      "feature_data": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.25,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.5
+      ],
+      "created_at": "2026-05-07T19:26:18.612443"
+    },
+    {
+      "vector_id": "ae4a11bd-3a26-49bd-a04e-81f0089a00e5",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "feature_data": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.25,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.5
+      ],
+      "created_at": "2026-05-07T19:28:06.498795"
     }
   ],
   "peer_groups": [
@@ -102,40 +225,98 @@
   ],
   "recommendation_logs": [
     {
-      "log_id": "7627bcbb-0c31-41df-82c3-7521b3831285",
-      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
-      "group_id": "g1",
+      "log_id": "083798ef-462f-4b1d-83f6-a52e6ad1c750",
+      "user_id": "c43dfa65-2515-4445-b32b-05f977057242",
+      "group_id": null,
       "location": "belfast",
       "category": "Restaurants",
       "layer_used": 1,
-      "recommendation_time": "2026-05-05T19:05:14.007155"
+      "recommendation_time": "2026-05-07T19:25:12.372751"
     },
     {
-      "log_id": "fb783860-4844-4b76-a12d-63eaac50c312",
-      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
-      "group_id": "g1",
-      "location": "bangkok",
+      "log_id": "6be83524-c9fb-4099-bba4-3614a5a35f54",
+      "user_id": "7de8e6c4-e40a-4743-a090-8f9ac81557a4",
+      "group_id": "g5",
+      "location": "belfast",
       "category": "Restaurants",
-      "layer_used": 1,
-      "recommendation_time": "2026-05-05T19:06:24.576652"
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T19:26:22.997921"
     },
     {
-      "log_id": "41fc1f1d-1cf8-48a4-aebf-b53468b4a2a1",
-      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
-      "group_id": "g1",
-      "location": "mokpo, south korean",
+      "log_id": "71fd1430-31e1-4168-97d4-696f48b04dfa",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
       "category": "Restaurants",
-      "layer_used": 1,
-      "recommendation_time": "2026-05-05T19:09:28.153440"
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T19:28:11.883389"
     },
     {
-      "log_id": "f5694bc5-537d-49d7-99bc-cecb56cd99e5",
-      "user_id": "3d0add4d-c862-41af-853c-2d60cb93e6d0",
-      "group_id": "g1",
-      "location": "mokpo, south korean",
+      "log_id": "e3702632-be86-48c7-9d2c-872817880856",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfas",
       "category": "Restaurants",
-      "layer_used": 1,
-      "recommendation_time": "2026-05-05T19:10:36.850904"
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T19:44:14.739457"
+    },
+    {
+      "log_id": "a2229818-7308-4894-a3f1-71b7f60f3c8b",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T19:44:17.195841"
+    },
+    {
+      "log_id": "80da6226-77cb-4c19-9b28-56c876e8e71e",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T19:44:41.708522"
+    },
+    {
+      "log_id": "cb97642f-063f-49c6-a51f-d9a66ee25ed0",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T20:41:46.143127"
+    },
+    {
+      "log_id": "867e3d17-5988-4df8-a2d4-c9ec3ab5035b",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T20:51:33.080618"
+    },
+    {
+      "log_id": "397077b8-95a2-4f89-98d9-c7932159c74d",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-07T21:02:35.730553"
+    }
+  ],
+  "place_ratings": [
+    {
+      "rating_id": "014ff111-1f6f-424b-bbff-f69c8874bc59",
+      "user_id": "7de8e6c4-e40a-4743-a090-8f9ac81557a4",
+      "place_id": "ChIJ3Zg26PAIYUgREmUDty2e-wo",
+      "place_name": "Benedicts Hotel Belfast",
+      "place_address": "7-21 Bradbury Place, Belfast",
+      "place_category": "Restaurants",
+      "rating": 5,
+      "review": "",
+      "created_at": "2026-05-07T19:26:34.677416"
     }
   ]
 }

@@ -25,22 +25,66 @@ def get_user_count():
 
 def determine_layer(user_id):
     total_users = get_user_count()
-
     if total_users < 2:
         return 1
-
     similar_users = get_similar_users(user_id, top_n=3)
     has_similar = len([u for u in similar_users if u['similarity_score'] > 50]) > 0
-
     if total_users < 10 or not has_similar:
         return 2
-
     return 3
 
-def score_places(places, user_vector=None, lifestyle=None):
+def get_neighbour_place_ratings(user_id, places):
+    db = read_db()
+    similar_users = get_similar_users(user_id, top_n=10)
+    similar_ids = [u['user_id'] for u in similar_users]
+
+    neighbour_ratings = {}
+    for r in db['place_ratings']:
+        if r['user_id'] in similar_ids:
+            pid = r['place_id']
+            if pid not in neighbour_ratings:
+                neighbour_ratings[pid] = {
+                    'ratings': [],
+                    'reviewers': [],
+                    'reviews': []
+                }
+            username = next(
+                (u['username'] for u in db['user_profiles']
+                 if u['user_id'] == r['user_id']), 'Unknown'
+            )
+            neighbour_ratings[pid]['ratings'].append(r['rating'])
+            neighbour_ratings[pid]['reviewers'].append(username)
+            if r.get('review'):
+                neighbour_ratings[pid]['reviews'].append({
+                    'text': r['review'],
+                    'rating': r['rating'],
+                    'username': username
+                })
+
+    for place in places:
+        pid = place.get('place_id')
+        if pid in neighbour_ratings:
+            ratings = neighbour_ratings[pid]['ratings']
+            avg = round(sum(ratings) / len(ratings), 1)
+            reviews = neighbour_ratings[pid]['reviews']
+            top_review = max(reviews, key=lambda x: x['rating']) if reviews else None
+
+            place['neighbour_avg_rating'] = avg
+            place['neighbour_reviewers'] = neighbour_ratings[pid]['reviewers']
+            place['neighbour_rating_count'] = len(ratings)
+            place['neighbour_top_review'] = top_review['text'] if top_review else None
+        else:
+            place['neighbour_avg_rating'] = None
+            place['neighbour_reviewers'] = []
+            place['neighbour_rating_count'] = 0
+            place['neighbour_top_review'] = None
+
+    return places
+
+def score_places(places, user_vector=None, lifestyle=None, user_id=None):
     scored = []
     for place in places:
-        base_score = (place.get('rating', 3.0) / 5.0) * 60
+        base_score = (place.get('rating', 3.0) / 5.0) * 50
 
         keyword_score = 0
         if lifestyle and lifestyle in LIFESTYLE_KEYWORDS:
@@ -49,11 +93,18 @@ def score_places(places, user_vector=None, lifestyle=None):
             for kw in keywords:
                 if kw in name_lower:
                     keyword_score += 10
-        keyword_score = min(keyword_score, 30)
+        keyword_score = min(keyword_score, 20)
+
+        neighbour_score = 0
+        if place.get('neighbour_avg_rating'):
+            neighbour_score = (place['neighbour_avg_rating'] / 5.0) * 30
 
         popularity_score = 10 if place.get('open_now') else 0
 
-        place['vibe_match'] = min(round(base_score + keyword_score + popularity_score), 100)
+        place['vibe_match'] = min(
+            round(base_score + keyword_score + neighbour_score + popularity_score),
+            100
+        )
 
         if place.get('photo_reference'):
             place['photo_url'] = get_place_photo(place['photo_reference'])
@@ -63,7 +114,11 @@ def score_places(places, user_vector=None, lifestyle=None):
 
         scored.append(place)
 
-    scored.sort(key=lambda x: x.get('vibe_match', 0), reverse=True)
+    scored.sort(key=lambda x: (
+        x.get('neighbour_avg_rating') or 0,
+        x.get('vibe_match', 0)
+    ), reverse=True)
+
     return scored
 
 @bp.route('/test', methods=['GET'])
@@ -81,7 +136,6 @@ def get_places():
         return jsonify({'error': 'Location is required'}), 400
 
     db = read_db()
-
     user_profile = None
     user_vector = None
     lifestyle = None
@@ -103,7 +157,10 @@ def get_places():
     if isinstance(places, tuple):
         return jsonify(places[0]), places[1]
 
-    scored_places = score_places(places, user_vector, lifestyle)
+    if user_id and layer == 3:
+        places = get_neighbour_place_ratings(user_id, places)
+
+    scored_places = score_places(places, user_vector, lifestyle, user_id)
 
     similar_users = []
     recommendation_mode = ''
@@ -111,11 +168,9 @@ def get_places():
     if layer == 1:
         recommendation_mode = 'popular'
         message = 'Showing top-rated places near you'
-
     elif layer == 2:
         recommendation_mode = 'lifestyle'
         message = f'Showing places popular with {lifestyle}s near you'
-
     elif layer == 3:
         recommendation_mode = 'peer'
         similar_users = get_similar_users(user_id, top_n=3)
@@ -164,7 +219,6 @@ def match():
         }), 404
 
     group_id, match_score = find_peer_group(user_id)
-
     group_name = ''
     for g in db['peer_groups']:
         if g['group_id'] == group_id:
