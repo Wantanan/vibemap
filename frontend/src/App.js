@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
+import PlaceDetail from './pages/PlaceDetail';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/place/:place_id" element={<PlaceDetail />} />
       </Routes>
     </Router>
   );

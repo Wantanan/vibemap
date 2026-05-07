@@ -22,6 +22,20 @@ const STEPS = [
     ]
   },
   {
+    key: 'age_range',
+    title: 'Age Range',
+    question: 'What is your age range?',
+    type: 'single',
+    options: [
+        { value: '18-24', icon: '🌱', desc: 'Early Explorer' },
+        { value: '25-34', icon: '⚡', desc: 'Prime Adventurer' },
+        { value: '35-44', icon: '🧭', desc: 'Established Discoverer' },
+        { value: '45-54', icon: '🌟', desc: 'Experienced Voyager' },
+        { value: '55-64', icon: '🎯', desc: 'Seasoned Traveller' },
+        { value: '65+', icon: '🏆', desc: 'Wisdom Wanderer' }
+    ]
+  },
+  {
     key: 'food_vibe',
     title: 'Food Vibe',
     question: 'What cuisines do you love?',

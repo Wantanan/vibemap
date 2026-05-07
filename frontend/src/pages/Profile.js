@@ -11,12 +11,16 @@ const LIFESTYLE_OPTIONS = [
   'Gen-Z Trendsetter','Active Senior','Empty Nester',
   'Solo Traveler','Student / Academic','Creative Freelancer'
 ];
+const AGE_OPTIONS = [
+  '18-24', '25-34', '35-44', '45-54', '55-64', '65+'
+];
 
 export default function Profile() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('vibemap_user'));
   const [profile, setProfile] = useState({
     lifestyle_phase: '',
+    age_range: '',
     food_vibe: [],
     atmosphere_music: [],
     activities: [],
@@ -95,30 +99,47 @@ export default function Profile() {
 
         {/* Section 1 */}
         <div className="profile-section">
-          <div className="profile-section-header">
-            <span className="section-num">1</span>
-            <span className="section-icon">🏠</span>
-            <h2 className="section-title">The Basics</h2>
-          </div>
-          <div className="profile-row">
-            <div className="profile-field">
-              <label className="profile-label">Display Name</label>
-              <input className="profile-input" value={user?.username} disabled />
+            <div className="profile-section-header">
+                <span className="section-num">1</span>
+                <span className="section-icon">🏠</span>
+                <h2 className="section-title">The Basics</h2>
             </div>
-            <div className="profile-field">
-              <label className="profile-label">Lifestyle Phase</label>
-              <select
-                className="profile-select"
-                value={profile.lifestyle_phase}
-                onChange={e => setProfile({ ...profile, lifestyle_phase: e.target.value })}
-              >
-                <option value="">Select lifestyle...</option>
-                {LIFESTYLE_OPTIONS.map(opt => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
+            <div className="profile-row">
+                <div className="profile-field">
+                    <label className="profile-label">Display Name</label>
+                    <input
+                        className="profile-input"
+                        value={user?.username}
+                        disabled
+                    />
+                </div>
+                <div className="profile-field">
+                    <label className="profile-label">Lifestyle Phase</label>
+                    <select
+                        className="profile-select"
+                        value={profile.lifestyle_phase}
+                        onChange={e => setProfile({ ...profile, lifestyle_phase: e.target.value })}
+                    >
+                        <option value="">Select lifestyle...</option>
+                        {LIFESTYLE_OPTIONS.map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="profile-field">
+                    <label className="profile-label">Age Range</label>
+                    <select
+                        className="profile-select"
+                        value={profile.age_range}
+                        onChange={e => setProfile({ ...profile, age_range: e.target.value })}
+                    >
+                        <option value="">Select age range...</option>
+                        {AGE_OPTIONS.map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                    </select>
+                </div>
             </div>
-          </div>
         </div>
 
         {/* Section 2 */}
