@@ -50,6 +50,7 @@ Each user's quiz answers are converted into a 30-dimensional numerical vector:
 
 ### Similarity Matching
 Uses **cosine similarity** from Scikit-learn to compare user feature vectors:
+```
 vibemap/
 ├── backend/
 │   ├── app/
@@ -88,7 +89,7 @@ vibemap/
 │           └── Profile.css
 ├── .gitignore
 └── README.md
-
+```
 ---
 
 ## 🚀 Getting Started
