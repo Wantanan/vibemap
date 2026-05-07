@@ -226,7 +226,7 @@ Each user's quiz answers are converted into a 36-dimensional numerical vector:
 ## 👨‍💻 Author
 
 **Wantananyam Wongwarachai**
-Final Year Project — Computer Science
+Final Year Project — Software and Cloud Development with Data Science
 Year 2026
 
 ---
