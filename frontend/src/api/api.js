@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:5000';
+
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:5000/api',
+  baseURL: `${BACKEND_URL}/api`,
 });
 
 export const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;

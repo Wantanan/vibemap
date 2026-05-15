@@ -49,6 +49,55 @@
         ],
         "personal_bio": "eating"
       }
+    },
+    {
+      "user_id": "ec2a2c15-536c-4019-8387-bc597d87d7e6",
+      "username": "wan",
+      "password": "1234",
+      "registration_date": "2026-05-10T21:53:09.929755",
+      "profile": {
+        "budget": 50,
+        "lifestyle_phase": "Digital Nomad",
+        "age_range": "45-54",
+        "food_vibe": [
+          "Japanese",
+          "Thai",
+          "Burgers/Pub"
+        ],
+        "atmosphere_music": [
+          "Pop / Top 40",
+          "Classical"
+        ],
+        "activities": [
+          "Live Music",
+          "Shopping"
+        ],
+        "personal_bio": "enjoy eating"
+      }
+    },
+    {
+      "user_id": "b648996c-67b0-41f6-bc65-ea5d8e44e3a4",
+      "username": "ryan",
+      "password": "8888",
+      "registration_date": "2026-05-10T21:56:17.755245",
+      "profile": {
+        "budget": 50,
+        "lifestyle_phase": "Digital Nomad",
+        "age_range": "25-34",
+        "food_vibe": [
+          "Burgers/Pub",
+          "Middle Eastern",
+          "Seafood"
+        ],
+        "atmosphere_music": [
+          "Rock / Indie",
+          "Pop / Top 40"
+        ],
+        "activities": [
+          "Workshops",
+          "Live Music"
+        ]
+      }
     }
   ],
   "feature_vectors": [
@@ -183,6 +232,94 @@
         1.5
       ],
       "created_at": "2026-05-07T19:28:06.498795"
+    },
+    {
+      "vector_id": "85f955e1-114a-4c41-b409-9d4aeeec71db",
+      "user_id": "ec2a2c15-536c-4019-8387-bc597d87d7e6",
+      "feature_data": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.25,
+        0.0,
+        0.0,
+        0.0,
+        1.5,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-05-10T21:53:50.673472"
+    },
+    {
+      "vector_id": "7b97ddc7-5446-4d8a-80db-bb7fcf668cf8",
+      "user_id": "b648996c-67b0-41f6-bc65-ea5d8e44e3a4",
+      "feature_data": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.25,
+        0.0,
+        1.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-05-10T21:56:40.539170"
     }
   ],
   "peer_groups": [
@@ -304,6 +441,69 @@
       "category": "Restaurants",
       "layer_used": 2,
       "recommendation_time": "2026-05-07T21:02:35.730553"
+    },
+    {
+      "log_id": "fd070e47-bc2a-4ffd-bf19-e64ea0a573e7",
+      "user_id": "ec2a2c15-536c-4019-8387-bc597d87d7e6",
+      "group_id": "g1",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-10T21:54:01.654785"
+    },
+    {
+      "log_id": "99551cba-dca1-4bb6-aab3-851dab068061",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-10T21:54:39.532696"
+    },
+    {
+      "log_id": "635c28b1-0561-4a90-91a6-9f4e98339807",
+      "user_id": "7de8e6c4-e40a-4743-a090-8f9ac81557a4",
+      "group_id": "g5",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-10T21:55:33.294731"
+    },
+    {
+      "log_id": "86cbf7e8-1eab-4b59-a697-194beb617c29",
+      "user_id": "b648996c-67b0-41f6-bc65-ea5d8e44e3a4",
+      "group_id": "g1",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-10T21:56:46.920111"
+    },
+    {
+      "log_id": "24b2d493-b6a6-4592-ac8f-c20c71f81ffc",
+      "user_id": "b648996c-67b0-41f6-bc65-ea5d8e44e3a4",
+      "group_id": "g1",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-10T21:57:17.309610"
+    },
+    {
+      "log_id": "a144095a-3480-45c8-af50-69525105b4b2",
+      "user_id": "ec2a2c15-536c-4019-8387-bc597d87d7e6",
+      "group_id": "g1",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-10T21:57:34.986905"
+    },
+    {
+      "log_id": "37e3551e-5fd3-4497-a263-b3f37a103979",
+      "user_id": "ec2a2c15-536c-4019-8387-bc597d87d7e6",
+      "group_id": "g1",
+      "location": "belfast",
+      "category": "Restaurants",
+      "layer_used": 2,
+      "recommendation_time": "2026-05-15T09:01:37.831199"
     }
   ],
   "place_ratings": [
@@ -317,6 +517,28 @@
       "rating": 5,
       "review": "",
       "created_at": "2026-05-07T19:26:34.677416"
+    },
+    {
+      "rating_id": "0e4802d0-5f58-4988-836f-bd8e175e5ecc",
+      "user_id": "4797c209-cab5-45ff-aef9-70b62b4fbb31",
+      "place_id": "ChIJP9M5jvcIYUgRfiuHp3I9Fv8",
+      "place_name": "Red Panda Restaurant",
+      "place_address": "Andras House, 2nd, 60 Great Victoria Street, Belfast",
+      "place_category": "Restaurants",
+      "rating": 5,
+      "review": "",
+      "created_at": "2026-05-10T21:55:02.168309"
+    },
+    {
+      "rating_id": "9ddb7eb0-2286-4979-ae03-8ad39b733fb2",
+      "user_id": "b648996c-67b0-41f6-bc65-ea5d8e44e3a4",
+      "place_id": "ChIJ22ggAmwEYUgRe_LUbsRhXWU",
+      "place_name": "Premier Inn Belfast Titanic Quarter hotel",
+      "place_address": "2A Queens Road, Belfast",
+      "place_category": "Restaurants",
+      "rating": 5,
+      "review": "",
+      "created_at": "2026-05-10T21:57:08.185100"
     }
   ]
 }
